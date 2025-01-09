@@ -89,6 +89,5 @@ publicapi/
 - Implement user authentication for personalized experiences.
 - Cache API responses to improve performance.
 
-## License
-This project is licensed under the MIT License. Feel free to use and modify it as per your needs.
+
 
