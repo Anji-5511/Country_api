@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-size: 18px;
+            margin-bottom: 8px;
+            display: block;
+            font-weight: bold;
+        }
+
+        select {
+            width: 100%;
+            padding: 8px;
+            margin: 10px 0;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            background-color: #fafafa;
+        }
+
+        button {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 15px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        .country-details {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .country-details h2, .country-details h4 {
+            margin: 10px 0;
+        }
+
+        .country-details img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+
+        .country-details h2 {
+            color: #2c3e50;
+        }
+
+        .country-details h4 {
+            color: #7f8c8d;
+        }
+
+        .country-details .borders, .country-details .languages, .country-details .currencies {
+            font-weight: bold;
+        }
+
+        .country-details .borders,
+        .country-details .languages,
+        .country-details .currencies {
+            color: #3498db;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Country Information</h1>
+    </header>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <label for="search">Search</label>
+        <select name="country" id="">
+            <option value="Search" selected ></option>
+            <option value="" disabled >Choose a country</option>
+            {% for i in data1 %}
+                <option>{{ i.name }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Submit</button>
+    </form>
+
+    <div>
+        {% if details %}
+            <div class="country-details">
+                <h2>Country Name: {{ details.name }}</h2>
+                <h2>Country Capital: {{ details.capital }}</h2>
+                <h4>Border Details: {{ details.borders }}</h4>
+                <h4>Population: {{ details.population }}</h4>
+                <h4>Area: {{ details.area }}</h4>
+                <img src="{{ details.flags.svg }}" alt="Flag" height="150px" width="350px">
+                <h4>Languages: {{ details.languages }}</h4>
+                <h4>Currencies: {{ details.currencies }}</h4>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
+
