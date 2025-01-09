@@ -57,12 +57,12 @@ This project is a web application built using Django that provides detailed info
 ### Home Page Snapshot
 Below is a snapshot of the home page with the search field:
 
-![Home Page](images/home_page.png)
+![Home Page](images/search.png)
 
 ### Country Details Snapshot
 After searching for a country, the application displays its details as shown in the snapshot below:
 
-![Country Details](images/country_details.png)
+![Country Details](images/country.png)
 
 ## API Integration
 The project integrates with a country information API to retrieve real-time data. The API returns detailed information about countries in a structured format.
